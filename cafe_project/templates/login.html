@@ -1,0 +1,34 @@
+{%  load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'images/css/login.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="login">
+    <h1>Login</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" required><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+
+    <h1>Login with Twitter</h1>
+    <a href="{% url 'twitter_login' %}" class="btn btn-primary">
+        <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter Logo" style="height: 24px; margin-right: 8px;">
+        Login with Twitter
+    </a>
+
+</div>
+</body>
+</html>
